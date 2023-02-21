@@ -1,27 +1,36 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
-const baseURL = "https://newsapi.org/v2/everything?q=tesla&from=2023-01-18&sortBy=publishedAt&apiKey=fd0c5010162c4488a3638c02cf121734"
+//const baseURL = "https://newsapi.org/v2/everything?q=tesla&from=2023-01-21&sortBy=publishedAt&apiKey=fd0c5010162c4488a3638c02cf121734"
+const baseURL = "https://newsapi.org/v2/everything?q=tesla&from=2023-01-21&sortBy=publishedAt&apiKey=ffd0c5010162c4488a3638c02cf121734"
 
 const NewsList = () => {
-  const [articles, setArticles] = React.useState(null);
+  const [articles, setArticles] = useState(null);
+  const [error, setError] = useState(null);
 
-  React.useEffect(() => {
-    // axios.get(baseURL).then((response) => {
-    //   setArticles(response.data.articles);
-    // });
-    setArticles(new Date());
+  useEffect(() => {
+    axios.get(baseURL)
+        .then(response => {
+          setArticles(response.data.articles);
+        })
+        .catch(error => {
+          setError(error.response.data.message);
+        })
   }, []);
 
-  if (!articles) return null;
+  if (error)  {
+    return <div className="error">
+       <h2>{ error }</h2>
+    </div>;
+  } else if (articles) {
+    const items = articles.map((article, index) =>
+        <div key={index}>
+          <h2>{article.title}</h2>
+        </div>
+    );
+    return <div>{ items }</div>;
+  }
 
-  // const listItems = articles.map((article, index) =>
-  //     <div key={index}>
-  //       <h1>{article.title}</h1>
-  //     </div>
-  // );
-
-  return <div>{ articles }</div>;
 }
 
 export default NewsList;

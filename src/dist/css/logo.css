@@ -4,7 +4,14 @@
   justify-content: flex-start;
 }
 
+.logo img {
+  width: 60px;
+  height: 60px;
+  margin-right: 5px;
+}
+
 .logo a {
+  width: 205px;
   font-size: 30px;
   font-weight: 900;
   text-decoration: none;

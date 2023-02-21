@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import React from 'react';
-import "../../dist/css/NavWithTitle.css";
+import '../../dist/css/NavWithTitle.css';
 
 const NavWithTitle = (props) => {
   const listItems = props.links.map((item) =>
-    <li>
+    <li key={item.id}>
       <Link to={ item.path }>{ item.link }</Link>
     </li>
   );
@@ -23,10 +23,12 @@ NavWithTitle.defaultProps = {
   title:  "Menu title",
   links: [
     {
+      id: 'n-de-1',
       link: "Link",
       path: "/"
     },
     {
+      id: 'n-def-2',
       link: "Link",
       path: "/"
     },

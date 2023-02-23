@@ -1,6 +1,12 @@
 import { Link } from 'react-router-dom';
 import '../../dist/css/footer.css';
 import NavWithTitle from '../navigation/NavWithTitle';
+import NavWithTitleAndImg from "../navigation/NavWithTitleAndImg";
+import NavWithTitleMega from "../navigation/NavWithTitleMega";
+import facebook from '../../dist/img/facebook.webp';
+import twitter from '../../dist/img/twitter.webp';
+import youtube from '../../dist/img/youtube.webp';
+import instagram from '../../dist/img/instagram.webp';
 
 const currentYear = new Date().getFullYear();
 
@@ -68,6 +74,43 @@ let socialNav = {
     },
   ]
 };
+let socialNavImg = {
+  title:  "Social Media",
+  links: [
+    {
+      img: {
+        name: youtube,
+        alt: "img",
+      },
+      link: "YouTube",
+      path: "https://www.youtube.com"
+    },
+    {
+      img: {
+        name: instagram,
+        alt: "img",
+      },
+      link: "Instagram",
+      path: "https://www.instagram.com"
+    },
+    {
+      img: {
+        name: twitter,
+        alt: "img",
+      },
+      link: "Twitter",
+      path: "https://twitter.com"
+    },
+    {
+      img: {
+        name: facebook,
+        alt: "img",
+      },
+      link: "FaceBook",
+      path: "https://www.facebook.com"
+    },
+  ]
+};
 
 const Footer = () => {
   return (
@@ -81,6 +124,8 @@ const Footer = () => {
           </div>
           <NavWithTitle { ...primaryNav } />
           <NavWithTitle { ...socialNav } />
+          <NavWithTitleAndImg { ...socialNavImg } />
+          <NavWithTitleMega />
         </div>
         <div className="copyright">
           <p className="container">

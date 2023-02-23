@@ -12,7 +12,12 @@ const NavWithTitleMega = (props) => {
               { item.link }
             </Link>
           </li>
-        } else {
+        } else if (!item.link && !item.path) {
+          return <li key={index}>
+            <img src={item.img.name} alt={item.img.alt}/>
+          </li>
+        }
+        else {
           return <li key={index}>
             <Link to={ item.path }>{ item.link }</Link>
           </li>
@@ -44,6 +49,12 @@ NavWithTitleMega.defaultProps = {
       },
       link: "Link",
       path: "/",
+    },
+    {
+      img: {
+        name: defaultImg,
+        alt: "img",
+      },
     },
   ]
 }

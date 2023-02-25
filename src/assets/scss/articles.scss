@@ -1,0 +1,25 @@
+.articles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  .article {
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 5px;
+    h2 {
+      font-size: 18px;
+    }
+    img {
+      width: 250px;
+      height: auto;
+    }
+  }
+}
+.single-news {
+  display: flex;
+  flex-direction: column;
+  img {
+    width: 500px;
+    height: auto;
+  }
+}

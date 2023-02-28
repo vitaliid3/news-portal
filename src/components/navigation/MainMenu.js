@@ -3,8 +3,8 @@ import React from 'react';
 import '../../dist/css/MainMenu.css';
 
 const MainMenu = (props) => {
-  const listItems = props.links.map((item) =>
-      <li key={item.id}>
+  const listItems = props.links.map((item, index) =>
+      <li key={index}>
         <NavLink to={ item.path }>{ item.link }</NavLink>
       </li>
   );
@@ -19,12 +19,10 @@ const MainMenu = (props) => {
 MainMenu.defaultProps = {
   links: [
     {
-      id: 'm-def-1',
       link: "Link",
       path: "/"
     },
     {
-      id: 'm-def-2',
       link: "Link",
       path: "/"
     },
